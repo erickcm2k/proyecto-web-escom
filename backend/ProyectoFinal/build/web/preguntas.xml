@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RELACION_DE_COLUMNAS>
+  <PREGUNTA ID="1" TEXTO="a" RESPUESTA="c">
+    <DRAGS>
+      <OPCION IMAGEN="https://via.placeholder.com/150">d</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">e</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">f</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">g</OPCION>
+    </DRAGS>
+    <TARGETS>
+      <OPCION IMAGEN="https://via.placeholder.com/150">h</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">i</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">j</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">k</OPCION>
+    </TARGETS>
+  </PREGUNTA>
+  <PREGUNTA ID="2" TEXTO="Otra pregunta de prueba" RESPUESTA="OP1-3;OP2-4;OP3-1;OP4-2">
+    <DRAGS>
+      <OPCION IMAGEN="https://via.placeholder.com/150">Fidel Castro</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">George W. Bush</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">Vidente Fox</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">Ricardo Lagos</OPCION>
+    </DRAGS>
+    <TARGETS>
+      <OPCION IMAGEN="https://via.placeholder.com/150">Mexico</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">Chile</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">Cuba</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">Estados Unidos</OPCION>
+    </TARGETS>
+  </PREGUNTA>
+  <PREGUNTA TEXTO="x" RESPUESTA="ccc" ID="1613">
+    <DRAGS>
+      <OPCION IMAGEN="https://via.placeholder.com/150">5</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">6</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">7</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">8</OPCION>
+    </DRAGS>
+    <TARGETS>
+      <OPCION IMAGEN="https://via.placeholder.com/150">5</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">6</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">7</OPCION>
+      <OPCION IMAGEN="https://via.placeholder.com/150">8</OPCION>
+    </TARGETS>
+  </PREGUNTA>
+</RELACION_DE_COLUMNAS>
+

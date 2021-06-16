@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RELACION_DE_COLUMNAS>
+    <PREGUNTA ID="1" TEXTO="Una simple pregunta de prueba" RESPUESTA="OP1-3;OP2-4;OP3-1;OP4-2">
+        <DRAGS>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Fidel Castro</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">George W. Bush</OPCION> 
+            <OPCION IMAGEN="https://via.placeholder.com/150">Vidente Fox</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Ricardo Lagos</OPCION>
+        </DRAGS>
+        <TARGETS>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Mexico</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Chile</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Cuba</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Estados Unidos</OPCION>
+        </TARGETS>	
+    </PREGUNTA>
+    <PREGUNTA ID="2" TEXTO="Otra pregunta de prueba" RESPUESTA="OP1-3;OP2-4;OP3-1;OP4-2">
+        <DRAGS>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Fidel Castro</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">George W. Bush</OPCION> 
+            <OPCION IMAGEN="https://via.placeholder.com/150">Vidente Fox</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Ricardo Lagos</OPCION>
+        </DRAGS>
+        <TARGETS>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Mexico</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Chile</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Cuba</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Estados Unidos</OPCION>
+        </TARGETS>	
+    </PREGUNTA>
+    <PREGUNTA ID="3" TEXTO="También soy una pregunta de prueba." RESPUESTA="OP1-3;OP2-4;OP3-1;OP4-2">
+        <DRAGS>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Fidel Castro</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">George W. Bush</OPCION> 
+            <OPCION IMAGEN="https://via.placeholder.com/150">Vidente Fox</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Ricardo Lagos</OPCION>
+        </DRAGS>
+        <TARGETS>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Mexico</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Chile</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Cuba</OPCION>
+            <OPCION IMAGEN="https://via.placeholder.com/150">Estados Unidos</OPCION>
+        </TARGETS>	
+    </PREGUNTA>
+</RELACION_DE_COLUMNAS>
