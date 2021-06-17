@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Text, Box, Stack, Button } from "@chakra-ui/react";
 import {
+  Text,
+  Box,
+  Stack,
+  Button,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
@@ -8,7 +11,7 @@ import {
   NumberDecrementStepper,
 } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
-
+import { Link } from "react-router-dom";
 const GameStatus = ({
   numeradorM,
   denominadorM,
@@ -21,15 +24,12 @@ const GameStatus = ({
   setIsCorrect,
 }) => {
   const toast = useToast();
-  // const [tries, setTries] = useState(3);
 
   const check = () => {
-    const formNumM = parseInt(value.formNumM);
-    const formDenomM = parseInt(value.formDenomM);
-    const formB = parseInt(value.formB);
+    const { formNumM, formDenomM, formB } = value;
 
     setIsCorrect(
-      formNumM === numeradorM && formDenomM === denominadorM && formB === b
+      formNumM == numeradorM && formDenomM == denominadorM && formB == b
     );
 
     setTries(tries - 1);
@@ -65,11 +65,14 @@ const GameStatus = ({
         </Text>
         <Text
           fontSize="2xl"
+          fontWeight="bold"
           color={tries === 0 && !isCorrect ? "red" : "black"}
         >{`Intentos restantes: ${tries}`}</Text>
         <Stack backgroundColor="blue.100" borderRadius="1rem" padding="1rem">
-          <Text fontWeight="bold">Tu función</Text>
-          <Text>{`Y = (${value.formNumM}/${value.formDenomM})x + ${value.formB}`}</Text>
+          <Text fontWeight="bold" fontSize="xl">
+            Tu función
+          </Text>
+          <Text fontSize="xl">{`Y = (${value.formNumM}/${value.formDenomM})x + ${value.formB}`}</Text>
           <NumberInput
             defaultValue={value.formNumM}
             onChange={(val) => {
@@ -125,8 +128,14 @@ const GameStatus = ({
 
         {tries === 0 && !isCorrect && (
           <>
-            <Stack backgroundColor="green.100" borderRadius="1rem" padding="1rem">
-              <Text fontWeight="bold">Esta es la función correcta</Text>
+            <Stack
+              backgroundColor="green.100"
+              borderRadius="1rem"
+              padding="1rem"
+            >
+              <Text fontWeight="bold" fontSize="xl">
+                Esta es la función correcta
+              </Text>
               <Text>{`Y = (${numeradorM}/${denominadorM})x + ${b}`}</Text>
             </Stack>
             <Stack
@@ -134,7 +143,9 @@ const GameStatus = ({
               borderRadius="1rem"
               padding="1rem"
             >
-              <Text fontWeight="bold">Tu función</Text>
+              <Text fontWeight="bold" fontSize="xl">
+                Tu función
+              </Text>
               <Text>{`Y = (${value.formNumM}/${value.formDenomM})x + ${value.formB}`}</Text>
             </Stack>
           </>
@@ -146,10 +157,6 @@ const GameStatus = ({
           </Box>
         )}
 
-        {(tries === 0 && !isCorrect) || isCorrect ? (
-          <Button onClick={() => location.reload()}>Reiniciar</Button>
-        ) : null}
-
         <Button
           disabled={(tries === 0 && !isCorrect) || isCorrect}
           backgroundColor="blue.200"
@@ -157,6 +164,9 @@ const GameStatus = ({
         >
           Checar
         </Button>
+        <Link to="/">
+          <Button>Volver</Button>
+        </Link>
       </Stack>
     </>
   );

@@ -14,19 +14,18 @@ import { Button } from "@chakra-ui/react";
 import axios from "axios";
 
 const Home = () => {
-  const [questions, setQuestions] = useState(null);
+  const [levels, setLevels] = useState(null);
 
   // Solicitar las preguntas al momento de que cargue la página.
   useEffect(() => {
-    getQuestions();
+    getlevels();
   }, []);
 
-  const getQuestions = async () => {
+  const getlevels = async () => {
     await axios
-      .get("http://localhost:8080/ProyectoFinal/Preguntas")
+      .get("http://localhost:8080/01proyectoFinal3CM15-emo/Ejercicios")
       .then((res) => {
-        setQuestions(res.data);
-        console.log(res.data);
+        setLevels(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -35,12 +34,11 @@ const Home = () => {
 
   const deleteQuestion = (id) => {
     alert(`La pregunta ${id} será eliminada.`);
-    let url = `http://localhost:8080/ProyectoFinal/Delete?id=${id}`;
+    let url = `http://localhost:8080/01proyectoFinal3CM15-emo/Delete?id=${id}`;
     axios
       .get(url)
-      .then((res) => {
-        console.log(res);
-        getQuestions();
+      .then(() => {
+        getlevels();
       })
       .catch((err) => {
         console.log(err);
@@ -56,10 +54,8 @@ const Home = () => {
       <Link to="new">
         <Button colorScheme="blue">Crear nuevo nivel del juego</Button>
       </Link>
-      <Link to="game">
-        <Button colorScheme="green">Probar</Button>
-      </Link>
-      {questions ? (
+
+      {levels ? (
         <Table variant="striped">
           <TableCaption>Lista de niveles</TableCaption>
           <Thead>
@@ -69,16 +65,14 @@ const Home = () => {
             </Tr>
           </Thead>
           <Tbody>
-            {questions.map((e, index) => {
+            {levels.map((e, index) => {
               return (
                 <Tr key={e.id}>
-                  <Td>
-                    {Number(index + 1)}.- {e.pregunta}
-                  </Td>
+                  <Td>{`${Number(index + 1)})`}</Td>
                   <Td>
                     <Link to={`see?id=${e.id}`}>
                       <Button colorScheme="green" size="md">
-                        Jugar
+                        Ver
                       </Button>
                     </Link>
                   </Td>
@@ -86,6 +80,13 @@ const Home = () => {
                     <Link to={`modify?id=${e.id}`}>
                       <Button colorScheme="yellow" size="md">
                         Modificar
+                      </Button>
+                    </Link>
+                  </Td>
+                  <Td>
+                    <Link to={`game?id=${e.id}`}>
+                      <Button colorScheme="blue" size="md">
+                        Probar nivel
                       </Button>
                     </Link>
                   </Td>

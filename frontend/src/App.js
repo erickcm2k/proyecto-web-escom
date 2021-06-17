@@ -20,9 +20,7 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Game />
-
-              {/* <Home /> */}
+              <Home />
             </Route>
 
             <Route exact path="/see">

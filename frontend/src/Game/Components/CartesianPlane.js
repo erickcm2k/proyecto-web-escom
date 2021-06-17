@@ -3,14 +3,20 @@ import { draw, drawUserLine } from "../../Helpers/canvasHelper";
 const CartesianPlane = (props) => {
   const canvasRef = useRef();
 
+  // Se resuelve el bug que no permite acceder al contenido de props.levelData
   useEffect(() => {
-    draw({ canvasRef, ...props });
-  }, []);
+    try {
+      const { b, denominadorM, numeradorM } = props.levelData;
+      draw({ canvasRef, numeradorM, denominadorM, b });
+    } catch (error) {
+      console.log(error);
+    }
+  });
 
   useEffect(() => {
     const { tries } = props;
     const { isCorrect } = props;
-    const { formNumM, formDenomM, formB } = props.value;    
+    const { formNumM, formDenomM, formB } = props.value;
 
     if (tries === 0 && !isCorrect) {
       drawUserLine({ canvasRef, formNumM, formDenomM, formB });

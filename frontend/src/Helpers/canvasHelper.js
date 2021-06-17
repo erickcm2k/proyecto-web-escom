@@ -76,9 +76,12 @@ export const draw = ({ canvasRef, numeradorM, denominadorM, b }) => {
   const canvas = canvasRef.current;
   const context = canvas.getContext("2d");
 
-  drawLine("green", context, canvas, numeradorM / denominadorM, b * 60);
+  // const numM = parseInt(numeradorM);
+  // const denomM = parseInt(denominadorM);
+  // const bb = parseInt(b);
 
   drawAxes(context, canvas);
+  drawLine("green", context, canvas, numeradorM / denominadorM, b * 60);
 };
 
 export const drawUserLine = ({ canvasRef, formNumM, formDenomM, formB }) => {

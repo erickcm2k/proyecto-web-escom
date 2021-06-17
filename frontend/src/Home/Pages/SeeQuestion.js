@@ -1,37 +1,31 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
-
-import { Box, Flex, Stack, Text } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/button";
-import { Heading } from "@chakra-ui/react";
-import { Image } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/layout";
+import { Button, Box } from "@chakra-ui/react";
 
 const SeeQuestion = () => {
-  const [questionData, setQuestionData] = useState(null);
+  const [levelData, setLevelData] = useState(null);
 
-  // const id = useParams().id;
   const id = new URLSearchParams(window.location.search).get("id");
 
   useEffect(() => {
-    const getQuestionData = async () => {
-      await axios
-        .get(`http://localhost:8080/ProyectoFinal/Preguntas?id=${id}`)
-        .then((res) => {
-          setQuestionData(res.data[0]);
-          console.log(res.data[0]);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-    getQuestionData();
-  }, [id]);
+    getCurrentLevel();
+  }, []);
 
+  const getCurrentLevel = async () => {
+    await axios
+      .get(`http://localhost:8080/01proyectoFinal3CM15-emo/Ejercicios?id=${id}`)
+      .then((res) => {
+        setLevelData(res.data[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
-      {!questionData ? (
+      {!levelData ? (
         <>
           <Text fontSize="xl" align="center" pt="6">
             No fue posible obtener los datos de la pregunta.
@@ -41,52 +35,47 @@ const SeeQuestion = () => {
           </Text>
         </>
       ) : (
-        <Stack spacing={3}>
-          <Heading>Datos de la pregunta</Heading>
-
-          <Text fontSize="2xl">{questionData.pregunta}</Text>
-          <Text>Respuestas: {questionData.respuesta}</Text>
-          <Heading size="md">Drags</Heading>
-          <Flex direction="row" justifyContent="space-evenly">
-            {questionData.drags.map((drag) => {
-              return (
-                <Box key={drag.valor}>
-                  <Image
-                    borderRadius="full"
-                    pb="2"
-                    src={drag.imagen}
-                    alt={drag.valor}
-                  ></Image>
-                  <Text align="center" key={uuidv4()}>
-                    {drag.valor}
-                  </Text>
-                </Box>
-              );
-            })}
-          </Flex>
-          <Heading size="md">Targets</Heading>
-          <Flex direction="row" justifyContent="space-evenly">
-            {questionData.targets.map((target) => {
-              return (
-                <Box key={target.valor}>
-                  <Image
-                    borderRadius="full"
-                    pb="2"
-                    src={target.imagen}
-                    alt={target.valor}
-                  ></Image>
-                  <Text align="center" key={uuidv4()}>
-                    {target.valor}
-                  </Text>
-                </Box>
-              );
-            })}
-          </Flex>
-        </Stack>
+        <>
+          <Text fontWeight="bold" fontSize="3xl">
+            Ecuación de la forma Y = mx + b
+          </Text>
+          <Stack spacing={3}>
+            <Box>
+              <Text fontWeight="bold" fontSize="lg">
+                Numerador de m
+              </Text>
+              <Text>{levelData.numeradorM}</Text>
+            </Box>
+            <Box>
+              <Text fontWeight="bold" fontSize="lg">
+                Denominador de m
+              </Text>
+              <Text>{levelData.denominadorM}</Text>
+            </Box>
+            <Box>
+              <Text fontWeight="bold" fontSize="lg">
+                Valor de b
+              </Text>
+              <Text>{levelData.b}</Text>
+            </Box>
+            <Box
+              backgroundColor="blue.100"
+              padding={"1rem"}
+              borderRadius={"1rem"}
+            >
+              <Text fontWeight="bold" fontSize="xl">
+                Ecuación
+              </Text>
+              <Text fontSize="xl">{`Y = (${levelData.numeradorM}/${levelData.denominadorM})x + ${levelData.b}`}</Text>
+            </Box>
+          </Stack>
+        </>
       )}
-      <Link to="/">
-        <Button colorScheme="blue">Volver</Button>
-      </Link>
+      <Box pt="5">
+        <Link to="/">
+          <Button colorScheme="blue">Volver</Button>
+        </Link>
+      </Box>
     </>
   );
 };
