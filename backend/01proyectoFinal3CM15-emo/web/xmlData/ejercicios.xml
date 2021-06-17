@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NIVELES_JUEGO>
+    <NIVEL id="12345" numeradorM="1" denominadorM="2" b="3" multimedia="//Descargas/img.png"></NIVEL>
+    <NIVEL id="54321" numeradorM="5" denominadorM="2" b="8" multimedia="//Descargas/img.png"></NIVEL>
+    <NIVEL id="56789" numeradorM="-10" denominadorM="1" b="0" multimedia="//Descargas/img.png"></NIVEL>
+</NIVELES_JUEGO>
