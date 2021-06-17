@@ -5,17 +5,27 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
         },
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.s?css$/, // archivos .css o .scss
+        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+      },
+      {
+        test: /\.(png|jpg|gif)$/, // archivos .png , .jpg o .gif
+        loader: "file-loader",
+        options: {
+          name: "static/media/[name].[hash:8].[ext]",
+        },
       },
     ],
+  },
+  resolve: {
+    extensions: [".js", ".json", ".jsx"],
   },
   entry: path.resolve(__dirname, "./src/index.js"),
   output: {
@@ -24,6 +34,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWPP({

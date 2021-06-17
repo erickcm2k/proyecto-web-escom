@@ -72,7 +72,7 @@ const SeeQuestion = () => {
         </>
       )}
       <Box pt="5">
-        <Link to="/">
+        <Link to="/home">
           <Button colorScheme="blue">Volver</Button>
         </Link>
       </Box>

@@ -1,0 +1,180 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+/*FlexBox*/
+.flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+/*Main*/
+main {
+  width: 50%;
+  height: auto;
+  animation: blink 20s infinite;
+  padding: 30px;
+  border-radius: 1px;
+  width: 90%;
+  max-width: 30rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+/*Main Efectos*/
+@keyframes blink {
+  0% {
+    background-color: rgb(70, 70, 70);
+  }
+  20% {
+    background-color: rgb(55, 55, 55);
+  }
+  40% {
+    background-color: rgb(30, 30, 30);
+  }
+  60% {
+    background-color: rgb(30, 30, 30);
+  }
+  80% {
+    background-color: rgb(55, 55, 55);
+  }
+  100% {
+    background-color: rgb(70, 70, 70);
+  }
+}
+
+/*lineas*/
+hr {
+  background-color: rgb(15, 109, 209);
+}
+
+/*imagen*/
+#logo {
+  width: 7rem;
+  -webkit-animation: mover 2s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+/*Efectos Imagen*/
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+main h1 {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+main h2 {
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+#bgcol {
+  padding: 2px;
+  background-color: darkgray;
+  border-radius: 8px;
+}
+
+/*Inputs*/
+input[type="submit"] {
+  display: inline-block;
+  background-color: #4993b8;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="submit"]:active,
+input[type="text"]:active,
+input[type="password"]:active,
+#bgcol:active {
+  -moz-transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+input[type="text"] {
+  animation: blink 20s infinite;
+  border: none;
+  color: rgb(4, 124, 252);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  width: 17rem;
+  border: 2px solid rgb(15, 109, 209);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type="password"] {
+  animation: blink 20s infinite;
+  border: none;
+  color: rgb(0, 123, 255);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 17rem;
+  border: 2px solid rgb(15, 109, 209);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type="password"]:hover,
+input[type="text"]:hover,
+#bgcol:hover {
+  background-image: linear-gradient(to right, rgb(1, 53, 121), rgb(60, 60, 60));
+  border-radius: 8px;
+  color: blanchedalmond;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

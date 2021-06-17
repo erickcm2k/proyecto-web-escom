@@ -15,39 +15,45 @@ import org.jdom2.input.SAXBuilder;
 
 public class Login extends HttpServlet {
 
+    private PrintWriter outter;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
-    {
-        
-        response.setContentType("text/plain;charset=UTF-8");
+            throws ServletException, IOException {
+
+        response.setContentType("application/json");
+        response.addHeader("Access-Control-Allow-Origin", "*");
+        outter = response.getWriter();
+
         String ruta = request.getRealPath("/");
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
         PrintWriter out = response.getWriter();
-        try
-        {
-        SAXBuilder builder = new SAXBuilder();
-        File archivoXML = new File(ruta+"/xmlData/usuarios.xml");
-        Document documento=builder.build(archivoXML);
-        Element raiz = documento.getRootElement();
-        List lista=raiz.getChildren("usuario");
-            for(int i=0;i<lista.size();i++)
-            {
-             Element elemento = (Element)lista.get(i);
-             String usernamexml=elemento.getAttributeValue("username");
-             String passwordxml=elemento.getAttributeValue("password");             
-             if(username.compareTo(usernamexml)==0&&password.compareTo(passwordxml)==0)
-             out.println("http://localhost:8084/01proyectoFinal3CM15-emo/home.html");                 
-             else
-             out.println("http://localhost:8084/01proyectoFinal3CM15-emo/error.html");                                  
+        try {
+            boolean isLoggedIn = false;
+            SAXBuilder builder = new SAXBuilder();
+            File archivoXML = new File(ruta + "/xmlData/usuarios.xml");
+            Document documento = builder.build(archivoXML);
+            Element raiz = documento.getRootElement();
+            List lista = raiz.getChildren("usuario");
+
+            for (int i = 0; i < lista.size(); i++) {
+                Element elemento = (Element) lista.get(i);
+                String usernamexml = elemento.getAttributeValue("username");
+                String passwordxml = elemento.getAttributeValue("password");
+                
+                isLoggedIn = username.compareTo(usernamexml) == 0 && password.compareTo(passwordxml) == 0;
             }
+
+            if (isLoggedIn) {
+                outter.write("home");
+            } else {
+                outter.write("error");
+            }
+
+        } catch (JDOMException e) {
+            e.printStackTrace();
         }
-        catch(JDOMException e)
-        {
-        e.printStackTrace();
-        }        
 
     }
 }

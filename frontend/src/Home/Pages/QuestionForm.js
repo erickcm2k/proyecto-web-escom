@@ -124,7 +124,7 @@ const QuestionForm = () => {
           Subir cambios
         </Button>
       </form>
-      <Link to="/">
+      <Link to="/home">
         <Button m="4" colorScheme="blue" type="submit">
           Volver
         </Button>

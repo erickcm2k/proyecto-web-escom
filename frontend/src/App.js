@@ -12,6 +12,7 @@ import Home from "./Home/Pages/Home";
 import SeeQuestion from "./Home/Pages/SeeQuestion";
 import QuestionForm from "./Home/Pages/QuestionForm";
 import Game from "./Game/Pages/Game";
+import Login from "./Home/Pages/Login";
 function App() {
   // 2. Use at the root of your app
   return (
@@ -20,6 +21,10 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
+              <Login />
+            </Route>
+
+            <Route exact path="/home">
               <Home />
             </Route>
 

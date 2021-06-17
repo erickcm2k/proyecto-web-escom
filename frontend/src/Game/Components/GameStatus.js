@@ -164,7 +164,7 @@ const GameStatus = ({
         >
           Checar
         </Button>
-        <Link to="/">
+        <Link to="/home">
           <Button>Volver</Button>
         </Link>
       </Stack>
